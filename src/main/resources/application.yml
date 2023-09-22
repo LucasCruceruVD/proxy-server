@@ -1,0 +1,16 @@
+server:
+  port: 8111
+spring:
+  application:
+    name: "proxy-server"
+zuul:
+  routes:
+    job-app:
+      path: /proxy/**
+      url: http://localhost:8181
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+  instance:
+    preferIpAddress: true
